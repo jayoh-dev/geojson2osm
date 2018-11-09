@@ -63,6 +63,14 @@ var geo = {
 geojson2osm.geojson2osm(geo);
 ```
 
+### TypeScript
+
+TypeScript implementation was added to the [DefinitelyTyped repository](https://github.com/DefinitelyTyped/DefinitelyTyped).
+
+```bash
+$ npm install --save @types/geojson2osm
+```
+
 ### Testing
 
 ```
