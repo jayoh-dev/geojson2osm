@@ -144,7 +144,13 @@ geojson2osm.geojson2osm = function(geojson) {
     var tags = '';
     for (var tag in properties) {
       if (properties[tag] !== null && tag && tag.indexOf('@') === -1) {
-        tags += '<tag k="' + tag + '" v="' + properties[tag].toString().replace(/"/g, '').replace(/&/g, '') + '"/>';
+      	if (tag == "tags" || tag == "meta") {
+        	for (let prop in properties[tag]) {
+        		tags += '<tag k="' + prop + '" v="' + properties[tag][prop].toString().replace(/"/g, '').replace(/&/g, '').replace('<', '&lt;').replace('<', '&gt;') + '"/>';
+        	}
+      	} else {
+          	tags += '<tag k="' + tag + '" v="' + properties[tag].toString().replace(/"/g, '').replace(/&/g, '').replace('<', '&lt;').replace('<', '&gt;') + '"/>';
+      	}
       }
     }
     return tags;
@@ -200,7 +206,9 @@ geojson2osm.geojson2osm = function(geojson) {
       };
       var obj = [];
       for (var i = 0; i < geojson.features.length; i++) {
-        obj.push(togeojson(geojson.features[i].geometry, geojson.features[i].properties));
+        if (geojson.features[i].geometry) {
+          obj.push(togeojson(geojson.features[i].geometry, geojson.features[i].properties));
+        }
       }
       for (var n = 0; n < obj.length; n++) {
         if (obj[n].nodes !== 'undefined') {
