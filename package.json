@@ -1,6 +1,6 @@
 {
   "name": "geojson2osm",
-  "version": "0.0.6",
+  "version": "0.0.7",
   "main": "./index",
   "bin": {
     "geojson2osm": "cli.js"
