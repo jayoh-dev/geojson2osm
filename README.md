@@ -1,4 +1,8 @@
-## GeoJSON to OSM
+[![Build Status](https://travis-ci.org/Rub21/geojson2osm.svg?branch=master)](https://magnum.travis-ci.com/Rub21/geojson2osm)
+
+## geojson2osm
+
+Convert gejson files to osm file.
 
 ## Usage
 	
@@ -57,4 +61,19 @@ var geo = {
   ]
 }
 geojson2osm.geojson2osm(geo);
+```
+
+### TypeScript
+
+TypeScript implementation was added to the [DefinitelyTyped repository](https://github.com/DefinitelyTyped/DefinitelyTyped).
+
+```bash
+$ npm install --save @types/geojson2osm
+```
+
+### Testing
+
+```
+npm test
+
 ```

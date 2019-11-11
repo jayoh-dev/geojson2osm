@@ -206,7 +206,9 @@ geojson2osm.geojson2osm = function(geojson) {
       };
       var obj = [];
       for (var i = 0; i < geojson.features.length; i++) {
-        obj.push(togeojson(geojson.features[i].geometry, geojson.features[i].properties));
+        if (geojson.features[i].geometry) {
+          obj.push(togeojson(geojson.features[i].geometry, geojson.features[i].properties));
+        }
       }
       for (var n = 0; n < obj.length; n++) {
         if (obj[n].nodes !== 'undefined') {
